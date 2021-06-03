@@ -1,0 +1,253 @@
+:root {
+  --green: rgb(55, 160, 0);
+  --dark-green: #008329;
+  --blue:  #14bff4;
+  --pane-padding: 5px 42px;
+  --grey: #f9f9f9;
+  --dark-grey:#9e9e9e;
+}
+
+
+@font-face {
+    font-family: "Poppins";
+    src: url("/poppins/Poppins-Regular.ttf");
+   }
+html, body{
+    margin: 0;
+    padding: 0;
+}
+/* orange     #FCB747 */
+html, body{
+    width: 1000px;
+    height: 600px;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    /* border: 1px solid var(--green); */
+    color: rgb(29, 67, 84);
+}
+.green{
+  color: var(--green);
+}
+.switch {
+    position: relative;
+    display: inline-flex;
+    width: 50px;
+    height: 24px;
+    top: -5px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #799DB5;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: rgb(55, 160, 0)
+    ;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px  rgb(55, 160, 0);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+
+header{
+    font-size: 25px;
+    padding: 20px 10px 5px;
+    color: var(--green);
+    font-weight: bold;
+    border-bottom: 1px solid green;
+}
+
+
+
+#rss-items{
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  box-sizing: border-box;
+  height: 70%;
+  /* padding: 20px 20px 0; */
+  /* text-align: left; */
+  border-bottom: 1px solid var(--green);
+  overflow: auto;
+}
+
+.rss-item{
+  padding: 20px 20px;
+  height: 95px;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  text-align: left;
+}
+.rss-item:hover .rss-item-title{
+  color: var(--green);
+}
+.rss-item:hover{
+  background-color: var(--grey);
+}
+.rss-item-title span:hover{
+  border-bottom: 1px solid var(--dark-green);
+  color: var(--dark-green);
+}
+.rss-item-title{
+  font-size: 17px;
+  float: left;
+}
+
+
+.rss-item-title{
+  font-weight: bold;
+  width: 90%;
+  padding-right: 30px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.rss-item-description{
+  width: 90%;
+  margin-top: 30px;
+  overflow: hidden;
+  height: 60px;
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.rss-item-link{
+  width: 12%;
+  transition: color 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+  /* cursor: pointer; */
+  
+}
+a, a:hover, a:focus, a:visited{
+  color: unset;
+  text-decoration: none;
+}
+
+.rss-item-link:hover{
+  color: var(--green);
+  border-color: var(--green);
+}
+#toggler{
+  position: absolute;
+  top: 25px;
+  right: 20px;
+}
+
+#mark-read{
+  display: inline-block;
+  color: white;
+  background-color: var(--blue);
+  font-size: 18px;
+  margin-top: 10px;
+  border-radius: 3px;
+  padding: 7px 15px;
+  cursor: pointer;
+  transition: filter 0.3s;
+}
+#mark-read:hover{
+  filter: brightness(0.95);
+}
+
+#mark-read .material-icons{
+  position: relative;
+  top: 3px;
+  left: 5px;
+  font-size: 20px;
+}
+/* SKELETON */
+.ssc-head-line{
+  height: 50px;
+  display: inline-block;
+  width: calc(100% - 70px);
+  margin: 10px 0;
+  
+}
+.ssc-head-line:not(:last-child){
+  
+}
+#no-items{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  font-size: 25px;
+
+  color: var(--blue);
+  font-weight: bold;
+}
+
+#rss-link{
+  transition: color 0.3s, border-color 0.3s;
+  width: 45%;
+  padding-bottom: 5px;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--dark-grey);
+  color: var(--dark-grey);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#rss-link:focus{
+  border-color: black;
+  color: var(--blue);
+}
+
+#refresh{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 50px;
+  transition: transform 0.5s, color 0.3s;
+  cursor: pointer;
+}
+#refresh:hover{
+  transform: rotateZ(360deg);
+  color: var(--green);
+}
